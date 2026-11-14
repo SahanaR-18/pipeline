@@ -11,7 +11,7 @@ pipeline {
 
         stage('Build & Execute Script') {
             steps {
-                echo 'Running test.py...'//message//
+                echo 'Running test.py...'
                 bat 'C:\Users\STUDENT\AppData\Local\Programs\Python\Python313\python.exe test.py'
             }
         }
