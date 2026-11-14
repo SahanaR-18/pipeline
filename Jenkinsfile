@@ -1,3 +1,4 @@
+
 pipeline {
     agent any
 
@@ -12,14 +13,18 @@ pipeline {
         stage('Build & Execute Script') {
             steps {
                 echo 'Running test.py...'
-                bat 'C:\\Users\STUDENT\AppData\Local\Programs\Python\Python313\python.exe test.py'
+
+                bat '''
+                    cd /d "%WORKSPACE%"
+                    "C:\\Users\\STUDENT\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" test.py
+                '''
             }
         }
 
         stage('Code Stability Check') {
             steps {
                 echo 'Verifying pipeline execution...'
-                bat 'echo "Python script executed successfully!"'
+                bat 'echo Python script executed successfully!'
             }
         }
     }
